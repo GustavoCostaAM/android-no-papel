@@ -1,0 +1,434 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f5ef"><meta name="description" content="Revisão de Android em Java para prova no papel. Oito módulos, 24 situações, treino de código e simulado comentado."><title>Android no papel</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23263d2d'/%3E%3Ctext x='10' y='45' fill='%23d6f1b0' font-size='40' font-family='monospace'%3Ea_%3C/text%3E%3C/svg%3E"><style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@400&display=swap');
+:root{font-family:'DM Sans',sans-serif;color:#26392d;background:#f5f5ef;font-size:15px;line-height:1.65;--line:#e1e6d9;--muted:#727e6b;--ink:#263d2d}*{box-sizing:border-box}body{margin:0}button,input,textarea,select{font:inherit}a{color:inherit}button{cursor:pointer;color:inherit}button:disabled{opacity:.4;cursor:default}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible,select:focus-visible{outline:3px solid #8aab60;outline-offset:3px}.skip{position:fixed;top:-100px;padding:12px;background:#233c2b;color:white;z-index:9}.skip:focus{top:0}.sidebar{position:fixed;inset:0 auto 0 0;width:245px;background:#fcfcf8;border-right:1px solid var(--line);padding:33px 25px;display:flex;flex-direction:column}.brand{display:flex;gap:12px;align-items:center;font:800 21px/1.25 Manrope,sans-serif;letter-spacing:-.7px;text-decoration:none}.brand small{display:block;font-size:16px}.brand-icon{height:46px;width:46px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:#d6f1b0;font:700 28px monospace}.workspace{display:flex;align-items:center;gap:10px;margin:35px 0;font-size:11px}.workspace small{display:block;font-size:9px;letter-spacing:1px;color:var(--muted)}.avatar{height:31px;width:31px;background:#e8ecdf;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center}.eyebrow{font-size:9px;letter-spacing:1.6px;color:#768965;font-weight:700;text-transform:uppercase}.sidebar nav{margin-top:13px;display:grid;gap:5px}.sidebar nav a{display:flex;gap:12px;align-items:center;padding:11px 12px;text-decoration:none;font-size:12px;color:#65715b;border-radius:9px}.sidebar nav a span{font-size:19px;width:20px;text-align:center}.sidebar nav a.active{background:#eaf1dd;font-weight:700;color:#2a4732}.sidebar nav a:hover{background:#f0f3e8}.bottom{margin-top:auto;padding-top:35px}.tip{border:1px solid var(--line);background:linear-gradient(130deg,#f1f4e9,#fbfcf8);border-radius:10px;padding:18px 15px}.tip p{font:600 16px/1.6 Manrope,sans-serif;margin:10px 0}.tip small{font-size:9px;color:var(--muted)}.tip hr{border:0;border-top:1px solid var(--line);margin:15px 0}.text-button{border:0;background:none;font-size:11px;padding:14px 0;color:#697d57}.shell{margin-left:245px}.topbar{height:80px;border-bottom:1px solid var(--line);padding:0 43px;display:flex;align-items:center;justify-content:space-between;background:#f9f9f3;font-size:11px;color:var(--muted)}.topbar b{font-weight:500;color:var(--ink)}.topbar .actions{display:flex;gap:20px;align-items:center}.mode{border:1px solid var(--line);background:white;border-radius:7px;padding:7px 12px;font-size:10px}.mode[aria-pressed=true]{background:var(--ink);color:white}main{max-width:1350px;padding:37px 43px;margin:auto;min-height:calc(100vh - 150px)}h1,h2,h3{font-family:Manrope,sans-serif}h1{font-size:30px;line-height:1.3;letter-spacing:-1px;margin:7px 0}h2{font-size:19px;letter-spacing:-.5px;margin:0}h3{font-size:15px;margin:0 0 7px}.intro{margin-bottom:25px}.intro>p{font-size:12px;color:var(--muted);margin:8px 0;max-width:720px}.intro-row{display:flex;justify-content:space-between;align-items:center}.badge{border:1px solid var(--line);border-radius:25px;padding:8px 13px;font-size:10px;background:#fcfdf8;color:#7b8b69}.hero{position:relative;display:grid;grid-template-columns:1.2fr .8fr;min-height:255px;background:#eaf0dc;border:1px solid #dce5cb;border-radius:17px;padding:31px 34px;overflow:hidden}.hero h2{font-size:35px;line-height:1.27;letter-spacing:-1.5px;margin:10px 0;font-weight:800}.hero h2 em{font-style:normal;color:#6b853f}.hero p{font-size:11px;color:#69775c;max-width:345px;margin:0 0 20px}.button{display:inline-flex;align-items:center;justify-content:center;gap:15px;text-decoration:none;padding:10px 17px;border:1px solid var(--ink);border-radius:7px;background:var(--ink);color:white;font-size:11px;font-weight:600}.button:hover{background:#416141}.button.secondary{background:white;color:var(--ink);border-color:var(--line)}.button.small{padding:7px 12px;font-size:10px}.art{position:relative;align-self:center;justify-self:center;width:230px;height:180px}.paper{position:absolute;left:18px;top:4px;width:190px;height:169px;transform:rotate(7deg);background:#fffef7;border:1px solid #dce3cd;border-radius:9px;box-shadow:0 7px #d4dfc2,0 15px 20px #455a2912;padding:19px;font:10px/1.9 'JetBrains Mono',monospace;color:#6a8058}.paper i{display:block;font-style:normal;font-size:15px;letter-spacing:4px;color:#ccd5bb;margin-bottom:12px}.paper b{font-weight:400;color:#9671aa}.pencil{position:absolute;right:-4px;bottom:-5px;height:137px;width:14px;transform:rotate(37deg);background:linear-gradient(90deg,#9ebc62 30%,#cbe890 30% 70%,#9cb659 70%);border-radius:3px 3px 0 0}.pencil:after{content:'';position:absolute;top:100%;border-left:7px solid transparent;border-right:7px solid transparent;border-top:20px solid #b49a77}.art-check{position:absolute;bottom:-8px;left:-7px;display:grid;place-items:center;background:var(--ink);color:#d9efb9;border:5px solid #eaf0dc;border-radius:50%;height:50px;width:50px;font-size:22px}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin:20px 0 30px}.stat{display:flex;align-items:center;gap:13px;border:1px solid var(--line);background:#fcfdf8;border-radius:11px;padding:17px}.stat>span{display:grid;place-items:center;height:32px;width:32px;background:#edf1e5;border-radius:9px;color:#7d9364;font-size:19px}.stat strong{font:800 22px/1.1 Manrope,sans-serif}.stat small{display:block;color:var(--muted);font-size:9px;margin-top:4px}.section-head{display:flex;justify-content:space-between;align-items:center;margin:26px 0 16px}.section-head p{margin:4px 0 0;font-size:11px;color:var(--muted)}.quiet{font-size:10px;text-decoration:none;color:#738d58}.columns{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:24px}.module-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.module-card{display:block;background:white;border:1px solid var(--line);border-radius:12px;padding:20px;text-decoration:none;transition:transform .15s}.module-card:hover{transform:translateY(-2px);border-color:#a7bb8d}.card-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}.module-icon{height:36px;width:36px;border-radius:10px;display:grid;place-items:center;font-size:22px;background:#e6efd7;color:#6e8a50}.purple .module-icon{background:#eae4f8;color:#937db0}.orange .module-icon{background:#faead5;color:#ac8855}.blue .module-icon{background:#e0edf8;color:#6a90ae}.number{font-size:9px;color:#919d87;letter-spacing:1px}.module-card h3{font-size:14px}.module-card p{font-size:10px;color:var(--muted);margin:0 0 17px}.card-footer{display:flex;justify-content:space-between;border-top:1px solid #edf1e6;padding-top:11px;font-size:9px;color:var(--muted)}.bar{height:3px;border-radius:3px;background:#edf1e6;margin-top:9px;overflow:hidden}.bar span{display:block;height:100%;background:#9cb875}.progress-card{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;margin-top:26px}.progress-card h3{font-size:13px}.ring{height:120px;width:120px;display:grid;place-items:center;border-radius:50%;background:conic-gradient(#91b468 var(--pct),#eef2e5 0);margin:23px auto 16px}.ring>div{height:103px;width:103px;border-radius:50%;background:white;display:grid;align-content:center;text-align:center}.ring strong{font:800 27px Manrope,sans-serif}.ring small{font-size:9px;color:var(--muted)}.progress-card p{font-size:10px;color:var(--muted);text-align:center}.progress-rows{font-size:10px;margin-top:20px}.progress-rows div{display:flex;justify-content:space-between;margin-top:8px}.progress-rows b{font-weight:500;color:var(--muted)}.practice{background:#eeebf6;border:1px solid #e2dcef;padding:21px;border-radius:12px;margin-top:15px}.practice .eyebrow{color:#8e7b9f;font-size:8px}.practice h3{font-size:18px;line-height:1.4;margin:7px 0}.practice p{font-size:10px;color:#86798e}.practice a{font-size:11px;text-decoration:none;font-weight:600}.method{display:flex;align-items:center;justify-content:space-between;gap:15px;border-top:1px solid var(--line);margin-top:28px;padding-top:20px;font-size:10px;color:var(--muted)}.method span{white-space:nowrap}.method b{padding:3px 7px;border-radius:50%;background:#e6edd9;color:#71895a;margin-right:4px}.callout{background:#eaf1dd;border:1px solid #dbe5ca;border-radius:12px;padding:18px 22px;font-size:13px;margin:20px 0}.callout strong{display:block;font-size:9px;text-transform:uppercase;letter-spacing:1px;color:#7c8e67;margin-bottom:4px}.concept{background:white;border:1px solid var(--line);border-radius:12px;padding:21px;font-size:13px;color:#68765e}.back{font-size:11px;color:#78925b;text-decoration:none;display:inline-block;margin-bottom:15px}.code{background:#23372b;color:#e0ecd6;border:1px solid #324936;border-radius:11px;margin:16px 0;overflow:hidden}.code-head{background:#2b4031;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 15px;font-size:10px;color:#bccfad}.code-head button{border:1px solid #7e936e;border-radius:5px;color:#d9e8cd;font-size:9px;padding:3px 8px;background:transparent}.code pre{font:11px/1.9 'JetBrains Mono',monospace;overflow:auto;margin:0;padding:20px;tab-size:4}.code-note{font-size:10px;padding:12px 16px;border-top:1px solid #3b523c;color:#b4c8a5}.paper-mode .code:not(.revealed) .code-body{display:none}.paper-mode .code:not(.revealed):after{content:'Exemple caché — tente escrever de memória antes de revelar.';content:'Exemplo escondido. Tente escrever de memória antes de revelar.';display:block;padding:26px 18px;text-align:center;font-size:11px;color:#bdcead}.traps{list-style:none;padding:0;display:grid;gap:9px}.traps li{display:flex;gap:10px;font-size:12px;background:#fcf8ee;border:1px solid #ebdfc6;border-radius:8px;padding:12px 15px}.traps li:before{content:'!';background:#eee1bd;color:#9b7a45;border-radius:50%;min-width:19px;height:19px;text-align:center;font-weight:700}.lesson{border:1px solid var(--line);border-radius:12px;background:white;margin:14px 0;padding:22px}.lesson-top{display:flex;gap:13px;align-items:center;margin-bottom:16px}.lesson-num{height:32px;min-width:32px;display:grid;place-items:center;border-radius:8px;background:#eff3e5;color:#80986a;font:12px 'JetBrains Mono',monospace}.lesson-top h3{font-size:14px;margin:0}.lesson-top small{font-size:10px;color:var(--muted)}.lesson p{font-size:13px}.check{color:#7d945f;font-size:11px!important}.label{display:block;font-size:9px;letter-spacing:1px;color:#927da5;font-weight:700;margin:18px 0 6px}.field-label{display:block;font-size:10px;color:var(--muted);margin:12px 0 6px}textarea{width:100%;min-height:110px;resize:vertical;border:1px solid var(--line);border-radius:8px;background:#fafcf6;padding:12px;color:var(--ink);font:11px/1.8 'JetBrains Mono',monospace}details summary{cursor:pointer;color:#77915e;font-size:11px;font-weight:600;padding:12px 0}details>p{background:#f0f5e7;padding:16px;border-radius:9px;font-size:12px}.done-row{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:15px;font-size:10px;color:var(--muted)}.done-button,.grade{border:1px solid #dce5cc;background:#f1f6e8;border-radius:7px;padding:8px 12px;font-size:10px}.done-button[aria-pressed=true],.grade[aria-pressed=true]{background:#d7eabd;border-color:#b0cc8f}.source{font-size:11px;color:#718d53}.bottom-nav{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:20px;margin-top:25px}.filter{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}.filter input,.filter select{background:white;border:1px solid var(--line);border-radius:8px;padding:10px 13px;font-size:12px;color:#697b59}.filter input{flex:1;min-width:200px}.row{display:flex;align-items:center;gap:15px;background:white;border:1px solid var(--line);padding:17px 20px;border-radius:10px;text-decoration:none;margin:9px 0}.row h3{font-size:13px;margin:0}.row p{font-size:10px;color:var(--muted);margin:3px 0 0}.row>span:last-child{margin-left:auto;color:#88a56b}.exam-layout{display:grid;grid-template-columns:1fr 270px;gap:20px}.panel{border:1px solid var(--line);border-radius:12px;background:white;padding:25px;font-size:13px}.panel li{margin:10px 0;color:var(--muted)}.dark-panel{background:var(--ink);color:#e4efd7}.dark-panel p{color:#c0d2b0}.dark-panel h2{font-size:29px}.dark-panel .button{background:#d6efad;color:var(--ink);width:100%;border:0}.small-note{font-size:10px;color:var(--muted)}.exam-top{display:flex;justify-content:space-between;align-items:center;gap:15px;background:#eaf1dd;padding:15px 20px;border-radius:10px}.exam-top strong{font:20px 'JetBrains Mono',monospace}.exam-top span{font-size:11px}.tag{display:inline-block;background:#eee8f7;color:#9176a4;font-size:9px;padding:3px 8px;border-radius:20px;margin-right:5px}.exam-q h3{font-size:14px;margin:12px 0}.grades{display:flex;gap:8px;align-items:center;margin-top:15px;font-size:11px}.rubric{font-size:11px;color:var(--muted)}.order{list-style:none;padding:0;display:grid;gap:7px}.order li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;background:#f0f4e7;border-radius:7px}.order code{font:10px/1.7 'JetBrains Mono',monospace}.order button{background:white;border:1px solid var(--line);border-radius:4px;padding:2px 8px;font-size:11px}.result{background:#e5f0d3;border:1px solid #d4e2c0;border-radius:12px;padding:24px;margin:20px 0}.result h2{font-size:25px}.result p{font-size:12px}.planner-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.planner-grid h2{font-size:17px}.planner-grid .panel p{font-size:12px;color:var(--muted)}.wide{grid-column:1/-1}table{border-collapse:collapse;width:100%;font-size:12px;margin:12px 0}th{text-align:left;background:#eaf1dd;color:#6d8258;font-size:10px}td,th{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}.quick-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.quick-card{background:white;border:1px solid var(--line);border-radius:10px;padding:19px}.quick-card h2{font-size:13px;margin:6px 0}.quick-card p{font-size:11px;color:var(--muted);margin:0}.actions-row{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}footer{max-width:1350px;margin:auto;display:flex;justify-content:space-between;gap:15px;padding:18px 43px 25px;font-size:9px;color:#919b86}#toast{position:fixed;left:calc(50% + 120px);bottom:25px;transform:translateX(-50%);padding:10px 18px;background:var(--ink);color:white;font-size:12px;border-radius:8px;opacity:0;pointer-events:none;z-index:9}#toast.show{opacity:1}.empty{padding:25px;text-align:center;font-size:12px;color:var(--muted)}.reset{font-size:10px;background:none;border:0;text-decoration:underline;color:#8d9880;margin-top:25px}
+@media(min-width:1550px){.hero{min-height:280px}.hero h2{font-size:41px}.hero p{font-size:13px}.module-card{padding:23px}.module-card h3{font-size:16px}.module-card p{font-size:12px}}
+@media(max-width:1150px){.sidebar{width:210px;padding:28px 18px}.shell{margin-left:210px}main{padding:28px}.topbar{padding:0 28px}.columns{grid-template-columns:minmax(0,1fr) 220px;gap:17px}.stat{padding:14px 10px;gap:8px}.stat>span{width:27px;height:27px}.hero{padding:25px}.hero h2{font-size:30px}.art{transform:scale(.85)}.module-card{padding:17px}.quick-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.method{align-items:flex-start;flex-wrap:wrap}footer{padding-left:28px;padding-right:28px}#toast{left:calc(50% + 105px)}}
+@media(max-width:900px){.sidebar{width:190px;padding:24px 13px}.shell{margin-left:190px}.brand{font-size:18px}.brand-icon{height:40px;width:40px}.brand small{font-size:14px}.workspace{font-size:10px}.workspace .avatar{display:none}.sidebar nav a{font-size:11px;padding:10px 9px;gap:8px}.columns{grid-template-columns:1fr}.dashboard-side{display:grid;grid-template-columns:1fr 1fr;gap:15px}.progress-card,.practice{margin-top:0}.hero h2{font-size:28px}.art{width:190px;transform:scale(.75)}.stats{grid-template-columns:repeat(2,1fr)}.exam-layout{grid-template-columns:1fr}.planner-grid{grid-template-columns:1fr}.wide{grid-column:auto}.java{display:none}#toast{left:calc(50% + 95px)}}
+@media(max-width:650px){.sidebar{position:relative;width:auto;inset:auto;padding:16px 19px;border-right:0;border-bottom:1px solid var(--line)}.brand{font-size:16px;gap:9px}.brand small{display:inline;margin-left:4px;font-size:16px}.brand-icon{height:32px;width:32px;font-size:23px;border-radius:8px}.workspace,.nav-label,.bottom{display:none}.sidebar nav{display:flex;overflow:auto;margin-top:16px;gap:5px;padding-bottom:3px}.sidebar nav a{flex-shrink:0;padding:7px 9px;font-size:10px;gap:5px}.sidebar nav a span{font-size:15px;width:16px}.shell{margin:0}.topbar{height:54px;padding:0 20px;font-size:10px}main{padding:24px 20px}h1{font-size:26px}.badge{display:none}.hero{grid-template-columns:1fr;padding:23px;min-height:265px}.hero h2{font-size:31px;max-width:300px;position:relative;z-index:1}.hero p{max-width:245px;position:relative;z-index:1}.hero .button{position:relative;z-index:1}.art{position:absolute;right:-55px;bottom:10px;opacity:.23;transform:scale(.9)}.stats{gap:9px;margin:15px 0 23px}.stat{padding:14px}.stat strong{font-size:21px}.module-grid{gap:10px}.module-card{padding:15px}.module-card h3{font-size:13px}.module-card p{font-size:10px}.number{font-size:8px}.card-footer{font-size:8px}.module-icon{height:31px;width:31px;font-size:19px}.dashboard-side{gap:10px}.progress-card,.practice{padding:17px}.practice h3{font-size:16px}.ring{width:97px;height:97px}.ring>div{width:81px;height:81px}.progress-rows{font-size:9px}.section-head h2{font-size:17px}.lesson{padding:17px}.lesson-top h3{font-size:13px}.done-row{flex-direction:column;align-items:flex-start}.code pre{font-size:10px;padding:15px}.quick-grid{grid-template-columns:1fr}.exam-top{flex-wrap:wrap}.grades{flex-wrap:wrap}.method{font-size:10px}.row{padding:14px 12px;gap:10px}.row h3{font-size:12px}.panel{padding:19px}.order{overflow:auto}.order li{min-width:300px}footer{padding:15px 20px 23px;flex-direction:column;gap:4px}#toast{left:50%;width:max-content;max-width:90%}.bottom-nav{gap:15px}.bottom-nav .button{font-size:10px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@media print{body{background:#fff;color:#111}.sidebar,.topbar,footer,.skip,#toast,.actions-row,.filter,.done-row,.code-head button,.back,.source,.bottom-nav,textarea,.field-label,.grades,.reset,.button{display:none!important}.shell{margin:0}main{padding:0;max-width:none;min-height:0}.quick-grid{grid-template-columns:1fr 1fr}.quick-card,.lesson,.panel{break-inside:avoid;border-color:#ccc}.code{background:#f5f5f5;color:#111;border-color:#ccc}.code-head{background:#eee;color:#222}.code pre{white-space:pre-wrap;overflow:visible;font-size:9px}.code-note{color:#333}.paper-mode .code:not(.revealed) .code-body{display:block}.paper-mode .code:not(.revealed):after{display:none}.planner-grid{grid-template-columns:1fr}.wide{grid-column:auto}details>*{display:block}summary{display:none}.art{display:none}}
+</style></head><body><a class="skip" href="#main">Pular para o conteúdo</a><aside class="sidebar" aria-label="Navegação principal"><a class="brand" href="#inicio"><span class="brand-icon">a_</span><span>android<small>no papel.</small></span></a><div class="workspace"><span class="avatar">G</span><div>Seu espaço de estudo<small>JAVA · ANDROID</small></div></div><span class="eyebrow nav-label">SEU LABORATÓRIO</span><nav><a href="#inicio" data-nav="inicio"><span>◫</span>Visão geral</a><a href="#trilha" data-nav="trilha"><span>▦</span>Trilha de estudos</a><a href="#treino" data-nav="treino"><span>⌘</span>Treino no papel</a><a href="#simulado" data-nav="simulado"><span>◷</span>Simulado</a><a href="#planejamento" data-nav="planejamento"><span>◇</span>Planeje um app</a><a href="#revisao" data-nav="revisao"><span>ϟ</span>Revisão expressa</a></nav><div class="bottom"><div class="tip"><span class="eyebrow">UM PASSO DE CADA VEZ</span><p>Entender é o começo.<br>Escrever fixa.</p><hr><small>Leia. Esconda. Escreva. Confira.</small></div><button class="text-button" id="print-button">→ Imprimir revisão</button><div class="small-note">Seu progresso fica neste navegador.</div></div></aside><div class="shell"><header class="topbar"><span>Laboratório &nbsp; / &nbsp; <b id="page-label">Visão geral</b></span><div class="actions"><span class="java">● Java + Android</span><button id="paper-mode" class="mode" aria-pressed="false">◉ Modo papel</button></div></header><main id="main" tabindex="-1"></main><footer><span>Feito para trocar o “eu reconheço” pelo “eu consigo escrever”.</span><span>Baseado no guia Mobile · nov/2026 · rev2</span></footer></div><div id="toast" role="status" aria-live="polite"></div><script>const modules=[
+{id:'intents',name:'Intents',icon:'↗',color:'green',subtitle:'De uma tela para outra',time:20,pattern:'Criar → colocar dados → abrir. Na volta: validar resultado → ler dados.',concept:'Intent explícita aponta para uma classe. Implícita informa ação e dados para o Android encontrar um app. startActivity não fecha a Activity anterior; finish remove a atual da pilha.',traps:['Envio e leitura precisam usar a mesma chave e o mesmo tipo. "17" é String; 17 é int.','getIntExtra("idade", -1) usa -1 como padrão quando não há um inteiro válido. Não converte String.','ACTION_DIAL abre o discador. ACTION_CALL tenta ligar e exige permissão.'],source:'https://developer.android.com/guide/components/intents-filters',code:`// Origem, em uma Activity:
+Intent i = new Intent(this, PerfilActivity.class);
+i.putExtra("nome", campoNome.getText().toString());
+i.putExtra("idade", Integer.parseInt(campoIdade.getText().toString()));
+startActivity(i);
+// Destino, após setContentView:
+String nome = getIntent().getStringExtra("nome");
+int idade = getIntent().getIntExtra("idade", 0);
+texto.setText(nome + " - " + idade + " anos");`,lessons:[
+['Do cadastro para o perfil','Escrever','Leia nome e idade de EditTexts e abra PerfilActivity. Envie a idade como int. Escreva também a leitura no destino.','Ana e 17 devem resultar em “Ana - 17 anos”.','Se a origem envia "17" e o destino usa getIntExtra("idade", -1), qual o resultado?','-1. O dado enviado é String e o getter espera int; ele usa o valor padrão. Valide o texto antes de parseInt para evitar NumberFormatException.'],
+['Botões que chamam outros apps','Escrever','Escreva Intents para discar, abrir um site, compartilhar texto com seletor e abrir o mapa.','A ação e a URI precisam combinar. Informe text/plain para compartilhar texto.','Qual a diferença entre explícita e implícita? Por que DIAL não pede a permissão de CALL?','Explícita indica a classe; implícita descreve uma ação. DIAL deixa a pessoa confirmar a chamada no discador; CALL tenta efetuar a chamada.',`startActivity(new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1133334444")));
+startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://example.com")));
+Intent enviar = new Intent(Intent.ACTION_SEND);
+enviar.setType("text/plain");
+enviar.putExtra(Intent.EXTRA_TEXT, "Olá!");
+startActivity(Intent.createChooser(enviar, "Compartilhar com"));
+startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("geo:0,0?q=escola")));
+// Em produção, trate a ausência de um app compatível.`],
+['Escolher e devolver','Ordenar','Abra uma seleção de cursos com registerForActivityResult. Devolva o curso com setResult e finish. Considere o Voltar sem escolher.','Confira RESULT_OK e Intent não nulo antes de ler.','O que finish faz com a tela de seleção?','Encerra a Activity atual e a remove da pilha. setResult deve preparar o resultado antes de finish. Registre o launcher antes da Activity estar iniciada, por exemplo em um campo.',`private final ActivityResultLauncher<Intent> escolher =
+    registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), r -> {
+        if (r.getResultCode() == RESULT_OK && r.getData() != null) {
+            texto.setText(r.getData().getStringExtra("curso"));
+        }
+    });
+// Clique da origem:
+escolher.launch(new Intent(this, CursosActivity.class));
+// Seleção no destino:
+Intent resposta = new Intent();
+resposta.putExtra("curso", "Java");
+setResult(RESULT_OK, resposta);
+finish();`]]},
+{id:'fragments',name:'Fragments',icon:'▦',color:'purple',subtitle:'Uma Activity, várias partes',time:25,pattern:'Container → beginTransaction → replace → addToBackStack → commit.',concept:'Fragment é uma parte reutilizável da interface hospedada em uma Activity. onCreateView cria a hierarquia; onViewCreated é apropriado para configurar componentes usando a View recebida.',traps:['Sem addToBackStack, Voltar não desfaz aquela transação.','O FragmentManager padrão recria pelo construtor sem parâmetros e restaura os arguments.','Na montagem inicial, teste savedInstanceState == null para não sobrescrever o Fragment restaurado.'],source:'https://developer.android.com/guide/fragments',code:`getSupportFragmentManager().beginTransaction()
+    .replace(R.id.container, DetalheFragment.newInstance(7))
+    .addToBackStack(null)
+    .commit();
+// Dentro do Fragment:
+@Override
+public void onViewCreated(View view, Bundle state) {
+    super.onViewCreated(view, state);
+    TextView nome = view.findViewById(R.id.nome);
+    nome.setText("Gustavo");
+}`,lessons:[
+['Lista e detalhe na mesma Activity','Interpretar','Mostre ListaFragment em um container. Troque pelo detalhe e permita que Voltar retorne à lista.','No detalhe, o primeiro Voltar desfaz a troca; o seguinte depende da pilha da Activity.','O que muda sem addToBackStack?','A transação não entra na pilha de retorno dos Fragments. Voltar não restaura automaticamente a lista por essa transação.',`if (savedInstanceState == null) {
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.container, new ListaFragment()).commit();
+}
+// Ao selecionar:
+getSupportFragmentManager().beginTransaction()
+    .replace(R.id.container, DetalheFragment.newInstance(7))
+    .addToBackStack(null).commit();`],
+['Sobreviver à rotação','Corrigir','Troque DetalheFragment(int id) por newInstance(int id), Bundle e arguments.','O id continua disponível após a recriação.','Por que o construtor com id sozinho é inadequado para a recriação padrão?','O Android não sabe chamar esse construtor com o id. Ofereça construtor público sem argumentos e passe os dados por arguments, que o FragmentManager restaura.',`public class DetalheFragment extends Fragment {
+    public DetalheFragment() { super(R.layout.fragment_detalhe); }
+    public static DetalheFragment newInstance(int id) {
+        DetalheFragment f = new DetalheFragment();
+        Bundle args = new Bundle();
+        args.putInt("id", id);
+        f.setArguments(args);
+        return f;
+    }
+    @Override
+    public void onViewCreated(View view, Bundle state) {
+        super.onViewCreated(view, state);
+        int id = requireArguments().getInt("id");
+    }
+}`],
+['Navegação com abas','Escrever','Associe Início, Busca, Favoritos e Perfil a Fragments usando BottomNavigationView.','Use replace para evitar sobreposição de conteúdos.','Em que objeto chamar findViewById?','Em onViewCreated, use view.findViewById no parâmetro recebido. Procurar numa hierarquia que não contém a View retorna null; usar esse null pode causar NullPointerException.',`bottomNav.setOnItemSelectedListener(item -> {
+    Fragment f;
+    int id = item.getItemId();
+    if (id == R.id.inicio) f = new InicioFragment();
+    else if (id == R.id.busca) f = new BuscaFragment();
+    else if (id == R.id.favoritos) f = new FavoritosFragment();
+    else f = new PerfilFragment();
+    getSupportFragmentManager().beginTransaction()
+        .replace(R.id.container, f).commit();
+    return true;
+});`]]},
+{id:'preferences',name:'SharedPreferences',icon:'◈',color:'orange',subtitle:'Pequenas memórias locais',time:15,pattern:'Arquivo → edit → put/remove → apply. Leitura: chave + tipo + padrão.',concept:'Guarda preferências simples no aparelho. apply atualiza a memória imediatamente e grava no disco de forma assíncrona; commit grava de forma síncrona e retorna boolean. Sem apply ou commit, as alterações do Editor não são aplicadas.',traps:['Arquivo e chave devem ser os mesmos na leitura e gravação. Use constantes.','Não guarde senhas em texto simples. O Firebase gerencia a sessão.','Limpar os dados do app apaga preferências. Um contador no onCreate também pode aumentar em recriações.'],source:'https://developer.android.com/training/data-storage/shared-preferences',code:`SharedPreferences prefs = getSharedPreferences("config", MODE_PRIVATE);
+prefs.edit().putBoolean("escuro", true).apply();
+boolean escuro = prefs.getBoolean("escuro", false);
+prefs.edit().remove("escuro").apply();`,lessons:[
+['Tema escuro que não esquece','Completar','Leia a configuração ao abrir. Grave e aplique o tema ao mudar o Switch.','Fechar pelos recentes e reabrir mantém o tema.','O que muda entre apply e commit? E se o arquivo lido for outro?','apply grava no disco assincronamente e não retorna sucesso; commit é síncrono e retorna boolean. Outro arquivo não contém necessariamente a chave e a leitura pode usar o padrão.',`SharedPreferences prefs = getSharedPreferences("config", MODE_PRIVATE);
+boolean escuro = prefs.getBoolean("escuro", false);
+AppCompatDelegate.setDefaultNightMode(escuro
+    ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+// Depois de associar o Switch:
+chave.setChecked(escuro);
+chave.setOnCheckedChangeListener((button, checked) -> {
+    prefs.edit().putBoolean("escuro", checked).apply();
+    AppCompatDelegate.setDefaultNightMode(checked
+        ? AppCompatDelegate.MODE_NIGHT_YES : AppCompatDelegate.MODE_NIGHT_NO);
+});`],
+['Lembrar o e-mail no login','Escrever','Salve e-mail se o CheckBox estiver marcado e remova se estiver desmarcado. Preencha o campo na abertura.','Desmarcar remove também o e-mail salvo anteriormente.','Por que não salvar a senha?','SharedPreferences comum não oferece criptografia de credenciais. Não salve a senha em texto simples. Para persistência de autenticação, use a sessão mantida pelo SDK.',`campoEmail.setText(prefs.getString("email", ""));
+SharedPreferences.Editor editor = prefs.edit();
+if (lembrar.isChecked()) {
+    editor.putString("email", campoEmail.getText().toString());
+} else {
+    editor.remove("email");
+}
+editor.apply();`],
+['Contador de aberturas','Interpretar','Leia um contador com padrão 0, some 1, salve e mostre na tela. Use constantes.','A primeira execução do trecho mostra 1.','Como as constantes ajudam? O que deveria ir para um banco?','Evitam divergência de nomes. Tema e filtros cabem nas preferências; coleções estruturadas de tarefas e filmes pedem banco. Para contar aberturas reais, considere o ciclo de vida: onCreate também roda na recriação.',`private static final String ARQUIVO = "config";
+private static final String CHAVE = "aberturas";
+// Dentro do método de contagem:
+SharedPreferences prefs = getSharedPreferences(ARQUIVO, MODE_PRIVATE);
+int quantidade = prefs.getInt(CHAVE, 0) + 1;
+prefs.edit().putInt(CHAVE, quantidade).apply();
+texto.setText("Você abriu o app " + quantidade + " vezes");`]]},
+{id:'recycler',name:'RecyclerView',icon:'☷',color:'blue',subtitle:'Uma lista, muitas possibilidades',time:40,pattern:'Create cria · Bind preenche · Count conta. Altere os dados antes de notificar.',concept:'Modelo representa os dados; XML define a linha; ViewHolder guarda as referências; Adapter liga dados e Views. LayoutManager organiza os itens. A reciclagem reaproveita Views para diferentes itens.',traps:['Sem LayoutManager, os itens não são posicionados/exibidos corretamente.','notifyItemInserted não adiciona dados; você precisa alterar a lista primeiro.','Use getBindingAdapterPosition no clique e confira NO_POSITION. position do bind pode ficar desatualizado.','Atualize todos os estados visuais no bind: Views recicladas podem carregar o estado do item anterior.'],source:'https://developer.android.com/develop/ui/views/layout/recyclerview',code:`public class TarefaAdapter extends RecyclerView.Adapter<TarefaAdapter.Holder> {
+    private final List<Tarefa> tarefas;
+    public TarefaAdapter(List<Tarefa> tarefas) { this.tarefas = tarefas; }
+
+    public static class Holder extends RecyclerView.ViewHolder {
+        TextView titulo;
+        CheckBox concluida;
+        public Holder(View itemView) {
+            super(itemView);
+            titulo = itemView.findViewById(R.id.titulo);
+            concluida = itemView.findViewById(R.id.concluida);
+        }
+    }
+    @Override
+    public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext())
+            .inflate(R.layout.item_tarefa, parent, false);
+        return new Holder(v);
+    }
+    @Override
+    public void onBindViewHolder(Holder holder, int position) {
+        Tarefa t = tarefas.get(position);
+        holder.titulo.setText(t.getTitulo());
+        holder.concluida.setChecked(t.isConcluida());
+    }
+    @Override
+    public int getItemCount() { return tarefas.size(); }
+}`,lessons:[
+['Lista de tarefas do zero','Escrever','Escreva o Adapter acima sem consultar. Configure a RecyclerView e adicione uma tarefa ao fim.','A notificação usa o índice da nova tarefa.','Por que o terceiro parâmetro de inflate é false?','O RecyclerView cuida de anexar a View ao parent. Create cria o Holder; Bind associa os dados; Count informa a quantidade. O modelo aqui pressupõe os getters e o construtor indicados.',`List<Tarefa> tarefas = new ArrayList<>();
+TarefaAdapter adapter = new TarefaAdapter(tarefas);
+recycler.setLayoutManager(new LinearLayoutManager(this));
+recycler.setAdapter(adapter);
+// Clique de adicionar:
+int indice = tarefas.size();
+tarefas.add(new Tarefa("Estudar", false));
+adapter.notifyItemInserted(indice);`],
+['Clique, toque longo e remoção','Corrigir','No clique abra um detalhe com o título. No toque longo, remova e notifique usando a posição atual.','Remover vários itens do meio continua removendo o item tocado.','Por que position do bind pode apagar o item errado?','Depois de inserções ou remoções, a posição capturada pode estar desatualizada. Consulte getBindingAdapterPosition no momento da interação e confira NO_POSITION.',`// Dentro de onBindViewHolder:
+holder.itemView.setOnClickListener(v -> {
+    int p = holder.getBindingAdapterPosition();
+    if (p == RecyclerView.NO_POSITION) return;
+    Intent i = new Intent(v.getContext(), DetalheActivity.class);
+    i.putExtra("titulo", tarefas.get(p).getTitulo());
+    v.getContext().startActivity(i);
+});
+holder.itemView.setOnLongClickListener(v -> {
+    int p = holder.getBindingAdapterPosition();
+    if (p == RecyclerView.NO_POSITION) return false;
+    tarefas.remove(p);
+    notifyItemRemoved(p);
+    return true;
+});`],
+['Quantas Views a lista cria?','Interpretar','Explique os logs de Create e Bind em 100 itens. Troque lista por grade de duas colunas.','Não há número fixo de Views: depende de tela, cache e prefetch.','Por que o bind roda mais vezes que o create?','As mesmas Views são reaproveitadas e preenchidas com dados de outros itens durante a rolagem. 100 itens não exigem 100 Views simultâneas.',`recycler.setLayoutManager(new GridLayoutManager(this, 2));
+// Nos métodos correspondentes:
+Log.d("LISTA", "onCreateViewHolder");
+Log.d("LISTA", "onBindViewHolder");`]]},
+{id:'retrofit',name:'Retrofit',icon:'⇄',color:'green',subtitle:'Dados que chegam depois',time:30,pattern:'Modelo → interface → Builder → create → enqueue → callback → tela.',concept:'enqueue inicia uma chamada assíncrona. A linha seguinte não espera o resultado. Se o JSON tem info e results, o modelo raiz representa esse objeto; a lista está em results. info.count é o total da API, results.size é a quantidade na página.',traps:['HTTP 404 e 500 chegam em onResponse; confira isSuccessful e body.','onFailure inclui falhas de rede e de criação/processamento da chamada; não é sempre falta de internet.','INTERNET precisa estar no Manifest, mas não pede autorização em tempo de execução.','Uma Call é executada uma única vez. Tentar de novo exige nova Call ou clone. A baseUrl termina em /.'],source:'https://square.github.io/retrofit/',code:`class Info { int count; }
+class Personagem { int id; String name; }
+class Resposta { Info info; List<Personagem> results; }
+interface Api {
+    @GET("character")
+    Call<Resposta> buscar(@Query("name") String nome);
+}
+Retrofit retrofit = new Retrofit.Builder()
+    .baseUrl("https://rickandmortyapi.com/api/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build();
+Api api = retrofit.create(Api.class);`,lessons:[
+['Lista de personagens','Escrever','Busque os personagens, mostre info.count e atualize a lista no callback.','Atualize a mesma lista usada pelo Adapter.','Por que o setText que depende da resposta precisa estar no callback?','O fluxo prossegue sem esperar a rede. O onCreate pode terminar antes de onResponse. Só use os dados quando a resposta estiver disponível e válida.',`api.buscar(null).enqueue(new Callback<Resposta>() {
+    @Override
+    public void onResponse(Call<Resposta> c, Response<Resposta> r) {
+        if (r.isSuccessful() && r.body() != null) {
+            total.setText("Total: " + r.body().info.count);
+            personagens.clear();
+            personagens.addAll(r.body().results);
+            adapter.notifyDataSetChanged();
+        } else total.setText("Erro HTTP: " + r.code());
+    }
+    @Override
+    public void onFailure(Call<Resposta> c, Throwable t) {
+        Log.e("API", "Falha ao carregar", t);
+        total.setText("Não foi possível carregar");
+    }
+});`],
+['Busca por nome','Interpretar','Envie o nome com @Query. Mostre ProgressBar e trate 404 como nenhum resultado.','Esconda o progresso em ambos os callbacks.','Busca sem resultado chega em onResponse ou onFailure?','onResponse: o servidor respondeu por HTTP. Para 404, isSuccessful é false. Limpe resultados antigos para não confundir o usuário.',`// Antes: progress.setVisibility(View.VISIBLE);
+// Use api.buscar(campoBusca.getText().toString()).enqueue(...);
+// No onResponse:
+progress.setVisibility(View.GONE);
+if (response.isSuccessful() && response.body() != null) {
+    personagens.clear();
+    personagens.addAll(response.body().results);
+    adapter.notifyDataSetChanged();
+} else if (response.code() == 404) {
+    personagens.clear();
+    adapter.notifyDataSetChanged();
+    mensagem.setText("Nenhum personagem encontrado");
+} else mensagem.setText("Erro HTTP: " + response.code());`],
+['Sem internet','Corrigir','Implemente erro e Tentar de novo sem deixar a tela presa no carregamento.','Refazer a chamada depois de recuperar a conexão deve carregar os dados.','Por que não deixar onFailure vazio?','Sem feedback, o usuário não sabe o que ocorreu nem consegue recuperar. Encerre o carregamento, registre a causa e permita nova tentativa com uma nova chamada.',`// No onFailure:
+progress.setVisibility(View.GONE);
+Log.e("API", "Falha na chamada", t);
+mensagem.setText("Não foi possível carregar. Tente novamente.");
+tentar.setVisibility(View.VISIBLE);
+// Ao configurar a tela: carregar() cria uma nova Call.
+tentar.setOnClickListener(v -> carregar());`]]},
+{id:'auth',name:'Firebase Auth',icon:'⌁',color:'purple',subtitle:'Quem está usando o app?',time:20,pattern:'Operação → listener → sucesso ou erro. Sessão: getCurrentUser.',concept:'Authentication cuida da identidade; Firestore guarda dados do app. O UID identifica o usuário. O SDK mantém a sessão no dispositivo por estado e tokens, sem você precisar guardar a senha.',traps:['getCurrentUser pode retornar null; confira antes de getUid ou getEmail.','Abra a Home só após sucesso do login.','signOut encerra a sessão, mas não limpa automaticamente a pilha de Activities.'],source:'https://firebase.google.com/docs/auth/android/start',code:`FirebaseAuth auth = FirebaseAuth.getInstance();
+auth.signInWithEmailAndPassword(email, senha)
+    .addOnCompleteListener(this, task -> {
+        if (task.isSuccessful()) {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        } else {
+            String erro = task.getException() != null
+                ? task.getException().getMessage() : "Falha no login";
+            Toast.makeText(this, erro, Toast.LENGTH_LONG).show();
+        }
+    });`,lessons:[
+['Cadastro e login com e-mail','Escrever','Escreva as chamadas de cadastro e login com tratamento de resultado.','Erro de autenticação não abre a Home.','Por que o resultado chega em addOnCompleteListener?','A operação é assíncrona e devolve uma Task. Só ao terminar sabemos se houve sucesso. Ative e-mail/senha no console e configure o Firebase no projeto.',`// Cadastro: mesmo padrão de listener do exemplo principal.
+auth.createUserWithEmailAndPassword(email, senha)
+    .addOnCompleteListener(task -> {
+        if (task.isSuccessful()) {
+            Toast.makeText(this, "Conta criada", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, task.getException().getMessage(),
+                Toast.LENGTH_LONG).show();
+        }
+    });
+// Login em outro fluxo:
+// auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(...);`],
+['Continuar logado','Interpretar','No onStart do login, verifique o usuário; se existir, abra a Home e finalize o login.','Reabrir o app pode ir direto para a Home.','O que pode ocorrer se tirar finish?','O login permanece na pilha. Voltar pode revelá-lo; seu onStart pode então redirecionar imediatamente à Home novamente.',`@Override
+protected void onStart() {
+    super.onStart();
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    if (user != null) {
+        startActivity(new Intent(this, HomeActivity.class));
+        finish();
+    }
+}
+// Na Home:
+FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+if (user != null) texto.setText(user.getEmail());`],
+['Sair e recuperar a senha','Escrever','Faça signOut e abra o login limpando a pilha. Implemente um botão de recuperação.','Depois de sair, Voltar não revela a Home anterior.','Onde fica a sessão para continuar logado?','O SDK gerencia localmente o estado de autenticação e tokens. Não é necessário guardar a senha em SharedPreferences.',`auth.signOut();
+Intent i = new Intent(this, LoginActivity.class);
+i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+startActivity(i);
+// Em outro botão:
+auth.sendPasswordResetEmail(email).addOnCompleteListener(task -> {
+    String msg = task.isSuccessful() ? "Solicitação enviada" : "Falha ao solicitar";
+    Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+});`]]},
+{id:'firestore',name:'Firestore',icon:'▤',color:'orange',subtitle:'Dados além do aparelho',time:30,pattern:'Coleção → documento → campos. get lê uma vez; listener acompanha.',concept:'Coleções reúnem documentos com ID e campos tipados. add cria ID automático; document(id).set grava no ID escolhido e substitui o conteúdo por padrão; update altera campos de documento existente; delete exclui.',traps:['whereEqualTo filtra, mas não substitui regras de segurança no servidor.','Preserve doc.getId no modelo: índice da lista não é ID do documento.','Ao remover listener no onStop, registre novamente no onStart para retomar.','Última vaga exige transação com leitura, validação e gravações atômicas.'],source:'https://firebase.google.com/docs/firestore',code:`FirebaseFirestore db = FirebaseFirestore.getInstance();
+Map<String, Object> dados = new HashMap<>();
+dados.put("titulo", "Estudar");
+dados.put("concluida", false);
+dados.put("usuarioId", uid);
+db.collection("tarefas").add(dados);
+db.collection("tarefas").whereEqualTo("usuarioId", uid).get();
+db.collection("tarefas").document(id).update("concluida", true);
+db.collection("tarefas").document(id).delete();
+// Acrescente listeners de sucesso/erro para tratar o resultado.`,lessons:[
+['Cadastro de filmes','Escrever','Valide título, leia RatingBar, monte Map e grave na coleção filmes. Feche só no sucesso.','Título vazio não é salvo; erro não fecha a tela como sucesso.','Quando usar add e quando usar set?','add gera ID automático. set usa um ID definido, criando ou substituindo o documento por padrão; SetOptions.merge pode preservar outros campos. update pressupõe documento existente.',`String titulo = campoTitulo.getText().toString().trim();
+if (titulo.isEmpty()) { campoTitulo.setError("Informe o título"); return; }
+Map<String, Object> dados = new HashMap<>();
+dados.put("titulo", titulo);
+dados.put("nota", nota.getRating());
+db.collection("filmes").add(dados)
+    .addOnSuccessListener(ref -> {
+        Toast.makeText(this, "Salvo!", Toast.LENGTH_SHORT).show();
+        finish();
+    })
+    .addOnFailureListener(e ->
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show());`],
+['Ler uma vez ou acompanhar ao vivo','Comparar','Compare get com addSnapshotListener. Guarde e remova ListenerRegistration.','Alterar o documento após a leitura atualiza automaticamente a tela com listener.','Por que remover um listener quando não é mais usado?','Evita eventos, leituras e referências à tela desnecessários. get basta para consulta pontual; chat ou lista com atualização automática usa listener.',`private ListenerRegistration registro;
+@Override
+protected void onStart() {
+    super.onStart();
+    registro = db.collection("filmes").addSnapshotListener((snapshot, erro) -> {
+        if (erro != null || snapshot == null) return;
+        // Atualize os dados do Adapter e notifique a mudança.
+    });
+}
+@Override
+protected void onStop() {
+    if (registro != null) { registro.remove(); registro = null; }
+    super.onStop();
+}
+// Consulta pontual: db.collection("filmes").get().addOnSuccessListener(...);`],
+['Cada um vê só o que é seu','Planejar','Salve usuarioId com o UID. Filtre as tarefas; atualize e exclua pelo ID do documento.','Consulta filtra por UID e Security Rules impõem acesso ao dono.','Como a tarefa se liga ao usuário? O filtro garante segurança?','usuarioId guarda o UID da Authentication. whereEqualTo não é uma barreira de segurança: regras devem validar request.auth.uid e a propriedade dos documentos.',`FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+if (user == null) return;
+String uid = user.getUid();
+Map<String, Object> dados = new HashMap<>();
+dados.put("usuarioId", uid);
+dados.put("titulo", "Revisar");
+dados.put("concluida", false);
+db.collection("tarefas").add(dados);
+db.collection("tarefas").whereEqualTo("usuarioId", uid)
+    .get().addOnSuccessListener(snapshot -> {
+        // Preserve o doc.getId() de cada documento no modelo.
+    });`]]},
+{id:'maps',name:'Google Maps',icon:'⌖',color:'blue',subtitle:'Coloque o app no mapa',time:20,pattern:'Configurar → getMapAsync → onMapReady → marcador e câmera.',concept:'LatLng recebe latitude, longitude. Latitude varia de -90 a 90; longitude de -180 a 180. O Brasil tem latitudes positivas e negativas; ambas as coordenadas podem ser negativas. O mapa precisa estar pronto antes de ser usado.',traps:['Marcador fixo não exige localização do usuário; o ponto azul exige permissão.','Manifest declara a necessidade. Permissão perigosa também precisa ser concedida em tempo de execução.','setMyLocationEnabled sem permissão pode lançar SecurityException.','No Android 12+, peça FINE e COARSE juntas ao solicitar localização precisa.','Mapa cinza com marcador sugere problema nos tiles: confira chave, API habilitada, restrições, configuração e rede no Logcat.'],source:'https://developers.google.com/maps/documentation/android-sdk/location',code:`// Activity implements OnMapReadyCallback:
+SupportMapFragment fragment = (SupportMapFragment)
+    getSupportFragmentManager().findFragmentById(R.id.mapa);
+fragment.getMapAsync(this);
+
+@Override
+public void onMapReady(GoogleMap map) {
+    LatLng ponto = new LatLng(-23.5505, -46.6333);
+    map.addMarker(new MarkerOptions().position(ponto).title("São Paulo"));
+    map.moveCamera(CameraUpdateFactory.newLatLngZoom(ponto, 15));
+}`,lessons:[
+['O mapa da escola','Escrever','Configure a API key e escreva um marcador com zoom 15 em onMapReady.','Ordem latitude, longitude. As coordenadas do exemplo são ilustrativas.','Como identificar latitude? O que pode indicar mapa cinza com marcador?','Não basta olhar o sinal negativo. Confira ordem e limites. O marcador pode aparecer mesmo sem carregar os tiles; investigue chave, restrições, configuração e rede.',`// Dentro de application no Manifest:
+// <meta-data android:name="com.google.android.geo.API_KEY"
+//     android:value="SUA_CHAVE" />
+@Override
+public void onMapReady(GoogleMap map) {
+    LatLng escola = new LatLng(-23.5505, -46.6333);
+    map.addMarker(new MarkerOptions().position(escola).title("Escola — exemplo"));
+    map.moveCamera(CameraUpdateFactory.newLatLngZoom(escola, 15));
+}`],
+['Pontos do campus','Planejar','Percorra uma lista com quatro lugares, use cores e LatLngBounds para enquadrar. Trate clique na janela de informação.','Todos os pontos devem caber na câmera.','Por que uma lista é melhor que quatro addMarker duplicados?','Você separa dados e renderização. Novos locais vindos do Firestore podem ser desenhados pela mesma lógica sem repetir código.',`LatLngBounds.Builder limites = new LatLngBounds.Builder();
+for (Lugar lugar : lugares) {
+    map.addMarker(new MarkerOptions().position(lugar.posicao).title(lugar.nome)
+        .icon(BitmapDescriptorFactory.defaultMarker(lugar.cor)));
+    limites.include(lugar.posicao);
+}
+if (!lugares.isEmpty()) {
+    map.setOnMapLoadedCallback(() -> map.moveCamera(
+        CameraUpdateFactory.newLatLngBounds(limites.build(), 80)));
+}
+map.setOnInfoWindowClickListener(marker ->
+    Toast.makeText(this, marker.getTitle(), Toast.LENGTH_SHORT).show());
+// Lugar pressupõe campos nome, posicao e cor (hue).`],
+['Onde eu estou','Ordenar','Declare permissões, registre o launcher, confira a concessão e só habilite o ponto azul com mapa pronto.','Aceitar e negar não devem causar crash.','Por que declarar no Manifest não basta?','Você também precisa da autorização do usuário em tempo de execução. O guia usa RequestPermission no exemplo simplificado; para localização precisa em Android 12+, solicite FINE e COARSE juntas.',`private GoogleMap mapa;
+private final ActivityResultLauncher<String[]> pedir =
+    registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(),
+        resultado -> habilitar());
+private void habilitar() {
+    if (mapa == null) return;
+    boolean fine = ContextCompat.checkSelfPermission(this,
+        Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    boolean coarse = ContextCompat.checkSelfPermission(this,
+        Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    if (fine || coarse) mapa.setMyLocationEnabled(true);
+    else Toast.makeText(this, "Localização não autorizada", Toast.LENGTH_SHORT).show();
+}
+// Atribua mapa e verifique a permissão em onMapReady.
+// No clique de solicitação, se ainda não concedida:
+pedir.launch(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+    Manifest.permission.ACCESS_COARSE_LOCATION});
+// Declare ambas as permissões no Manifest.`]]}
+];
+let n=0;for(const m of modules)for(const l of m.lessons)l.n=++n;
+const exam=[
+['Interpretar','Intents','Qual é a saída?',`i.putExtra("idade", "17");
+int idade = getIntent().getIntExtra("idade", -1);
+texto.setText("Idade: " + idade);`,'Idade: -1. O tipo enviado é String; o getter espera int e usa o padrão.',['Indicou -1.','Explicou incompatibilidade de tipo.']],
+['Corrigir','SharedPreferences','O e-mail não persiste. Corrija.',`prefs.edit().putString("email", "ana@email.com");`,'Falta apply() ou commit(): prefs.edit().putString("email", "ana@email.com").apply();',['Acrescentou apply ou commit.','Explicou que o Editor precisa aplicar as alterações.']],
+['Escrever','RecyclerView','Escreva as assinaturas dos três métodos obrigatórios do Adapter e sua função.','','public Holder onCreateViewHolder(ViewGroup parent, int viewType): cria. public void onBindViewHolder(Holder holder, int position): preenche. public int getItemCount(): conta. Holder representa seu ViewHolder.',['Lembrou os três métodos e retornos.','Distinguiu criar, preencher e contar.']],
+['Interpretar','Retrofit','HTTP 404 cai em qual callback? O que conferir?','','onResponse. O servidor respondeu; isSuccessful() é false. Confira code() == 404. onFailure cobre falha de comunicação/criação/processamento.',['Respondeu onResponse.','Explicou a validação do status.']],
+['Ordenar','Intents','Ordene as linhas para devolver o resultado.','','Intent resposta = new Intent(); → resposta.putExtra("curso", "Java"); → setResult(RESULT_OK, resposta); → finish();',['Criou o Intent antes de usar.','Chamou setResult antes de finish.']],
+['Corrigir','Fragments','O Fragment só tem DetalheFragment(int id) e falha ao ser recriado. Corrija.','','Ofereça construtor público sem parâmetros. Use newInstance com Bundle e setArguments. Leia o id dos arguments, restaurados pelo FragmentManager.',['Usou construtor sem parâmetros e arguments.','Explicou a recriação.']],
+['Escrever','Firebase Auth','No onStart, pule o login se há sessão. Como tratar a pilha?','','FirebaseUser u = FirebaseAuth.getInstance().getCurrentUser(); if (u != null) { startActivity(new Intent(this, HomeActivity.class)); finish(); }',['Verificou currentUser != null.','Abriu Home e finalizou login.']],
+['Comparar','Firestore','Compare get e addSnapshotListener. Como cuidar do ciclo de vida?','','get lê uma vez. O listener acompanha mudanças. Guarde ListenerRegistration, remova em onStop e registre novamente em onStart para retomar.',['Diferenciou leitura pontual e contínua.','Explicou remoção e novo registro.']],
+['Corrigir','RecyclerView','Após remoções, o clique apaga outro item. Corrija.',`holder.itemView.setOnLongClickListener(v -> {
+    tarefas.remove(position);
+    notifyItemRemoved(position);
+    return true;
+});`,'Dentro do listener: int p = holder.getBindingAdapterPosition(); if (p == RecyclerView.NO_POSITION) return false; tarefas.remove(p); notifyItemRemoved(p); return true;',['Consultou posição atual e validou NO_POSITION.','Alterou a lista e notificou o mesmo índice.']],
+['Completar','Google Maps','O que conferir antes de setMyLocationEnabled(true)?','','GoogleMap pronto e permissão de localização concedida em tempo de execução. Manifest sozinho não basta. Sem permissão pode haver SecurityException.',['Conferiu mapa e concessão.','Distinguiu Manifest de autorização.']],
+['Planejar','Firestore','Uma vaga restante e dois alunos clicam ao mesmo tempo. Como impedir duas inscrições?','','Transação: ler evento e inscrição, validar vagas > 0 e ausência de inscrição, criar inscrição e decrementar vagas atomicamente. Em conflito, revalida ao repetir. Regras/backend precisam impor o fluxo.',['Identificou condição de corrida.','Propôs validação e gravações atômicas.']],
+['Escrever','Retrofit','Por que usar o resultado logo após enqueue está errado? Onde atualizar o TextView?','','enqueue não espera a resposta. Atualize dentro de onResponse depois de isSuccessful e body != null. Trate erro HTTP e onFailure.',['Explicou o assincronismo.','Moveu atualização para o callback e validou resposta.']]
+];
+const quick=[['Intent','Criar → putExtra → startActivity. Mesma chave e tipo no destino.'],['Retorno','registerForActivityResult; no destino setResult → finish. Valide RESULT_OK e data.'],['Fragment','beginTransaction → replace → addToBackStack, se quiser voltar → commit.'],['Arguments','newInstance → Bundle → setArguments → requireArguments.'],['View','Activity: após setContentView. Fragment: view.findViewById no onViewCreated.'],['Preferências','edit → put/remove → apply. Leitura: tipo, chave e padrão.'],['apply × commit','apply: memória imediata e disco assíncrono. commit: síncrono, retorna boolean.'],['Adapter','Create cria. Bind preenche. Count conta. inflate(..., parent, false).'],['Posição de clique','getBindingAdapterPosition + teste NO_POSITION.'],['Mudou lista?','Altere dados primeiro; depois notifyItemInserted/Removed no índice correto.'],['Reciclar','Reaproveitar a View e preenchê-la com outros dados.'],['Retrofit','Modelo → @GET/@Query → Builder → create → enqueue → callback.'],['HTTP 404','onResponse, com isSuccessful false.'],['onFailure','Trate erro, esconda progresso e ofereça nova Call para tentar de novo.'],['Login','signInWithEmailAndPassword; cadastro: createUserWithEmailAndPassword.'],['Sessão','getCurrentUser pode ser null. O SDK mantém sessão, não salve senha em texto simples.'],['Logout','signOut + NEW_TASK | CLEAR_TASK ao abrir LoginActivity.'],['Firestore','add: ID automático; set: ID definido; update: campos; delete: excluir.'],['Leitura','get: pontual. addSnapshotListener: acompanhar. Remova quando não usado.'],['Dados do dono','usuarioId = UID + filtro. Security Rules impõem acesso.'],['Última vaga','Transação valida e grava atomicamente. Leituras antes das gravações.'],['Mapa','getMapAsync → onMapReady → marcador → câmera. LatLng(latitude, longitude).'],['Permissões','Manifest declara. Runtime autoriza. Localização precisa: FINE + COARSE em Android 12+.'],['Antes de entregar','Confira tipos, chaves, nulls, callbacks, notify, permissões e pilha de retorno.']];
+</script><script>const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=x=>String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let state;try{state={done:[],drafts:{},paper:false,test:null,...JSON.parse(localStorage.getItem('android-paper-v2')||'{}')}}catch{state={done:[],drafts:{},paper:false,test:null}}
+function save(){try{localStorage.setItem('android-paper-v2',JSON.stringify(state))}catch{toast('O navegador não permitiu salvar o progresso.')}}
+function toast(text){$('#toast').textContent=text;$('#toast').classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>$('#toast').classList.remove('show'),2600)}
+const count=m=>m.lessons.filter(l=>state.done.includes(l.n)).length;
+const next=()=>modules.find(m=>count(m)<3)||modules[0];
+const all=modules.flatMap(m=>m.lessons.map(l=>({m,l})));
+function code(text,label='Código de referência',question=false){return `<div class="code ${question?'revealed':''}"><div class="code-head"><span>${esc(label)}</span><button data-reveal aria-expanded="${question||!state.paper}">${question||!state.paper?'Esconder':'Revelar'} exemplo</button><span>JAVA</span></div><div class="code-body"><pre><code>${esc(text)}</code></pre><div class="code-note">Trecho didático. Imports, dependências e recursos de layout são omitidos quando não são o foco.</div></div></div>`}
+function intro(tag,title,text){return `<div class="intro"><span class="eyebrow">${tag}</span><h1>${title}</h1><p>${text}</p></div>`}
+function card(m,i){return `<a class="module-card ${m.color}" href="#modulo/${m.id}"><div class="card-top"><span class="module-icon" aria-hidden="true">${m.icon}</span><span class="number">MÓDULO ${String(i+1).padStart(2,'0')}</span></div><h3>${m.name}</h3><p>${m.subtitle}</p><div class="card-footer"><span>3 situações · ${m.time} min</span><span>${count(m)===3?'✓':'→'}</span></div><div class="bar" aria-label="${count(m)} de 3 concluídas"><span style="width:${count(m)/3*100}%"></span></div></a>`}
+function home(){let done=state.done.length,pct=Math.round(done/24*100);return `<div class="intro intro-row"><div><span class="eyebrow">MENOS AUTOCOMPLETE. MAIS AUTONOMIA.</span><h1>Bora passar isso para o papel?</h1><p>Seu laboratório de revisão de Android. Um conceito de cada vez.</p></div><span class="badge">✦ Guia do professor · 24 situações</span></div><section class="hero"><div><span class="eyebrow">DO “EU RECONHEÇO” AO “EU SEI FAZER”</span><h2>O código é seu.<br><em>Mesmo sem o teclado.</em></h2><p>Entenda os padrões, escreva de memória e descubra o que ainda precisa de mais uma rodada.</p><a class="button" href="#modulo/${next().id}">${done?'Continuar':'Começar'} minha revisão →</a></div><div class="art" aria-hidden="true"><div class="paper"><i>•••</i><b>Intent</b> intent =<br>&nbsp; <b>new</b> Intent(this,<br>&nbsp; PerfilActivity.class);<br><br>intent.putExtra(<br>&nbsp; <b>"nome"</b>, nome);<br>startActivity(intent);</div><span class="pencil"></span><span class="art-check">✓</span></div></section><div class="stats">${[['▦','08','módulos para dominar'],['⌘','24','situações do guia'],['◷','12','questões no simulado'],['✓',done+' / 24','treinos concluídos']].map(s=>`<div class="stat"><span>${s[0]}</span><div><strong>${s[1]}</strong><small>${s[2]}</small></div></div>`).join('')}</div><div class="columns"><section><div class="section-head"><div><h2>Sua trilha de estudos</h2><p>Os oito assuntos do guia, organizados para praticar.</p></div><a class="quiet" href="#trilha">Explorar trilha →</a></div><div class="module-grid">${modules.map(card).join('')}</div></section><aside class="dashboard-side"><div class="progress-card"><h3>Seu progresso</h3><div class="ring" style="--pct:${pct}%"><div><strong>${pct}%</strong><small>da sua trilha</small></div></div><p>Cada treino feito sem consultar<br>é um passo de verdade.</p><div class="progress-rows"><div>Situações concluídas <b>${done} / 24</b></div><div>Módulos completos <b>${modules.filter(m=>count(m)===3).length} / 8</b></div><div>Próximo passo <b>${next().name}</b></div></div></div><div class="practice"><span class="eyebrow">HORA DE TESTAR</span><h3>Você, uma folha<br>e 45 minutos.</h3><p>Escreva, interprete e encontre erros. Depois confira o gabarito comentado.</p><a href="#simulado">Abrir o simulado →</a></div></aside></div><div class="method"><span>Reconhecer é diferente de conseguir escrever.</span><span><b>1</b>Leia &nbsp; <b>2</b>Esconda &nbsp; <b>3</b>Escreva &nbsp; <b>4</b>Confira</span></div>`}
+function trail(){return intro('SUA ROTA DE APRENDIZADO','Oito módulos. Um papel em branco.','Comece pelas bases e reserve uma rodada extra para o Adapter. Os tempos são sugestões, não uma previsão da prova.')+`<div class="callout"><strong>Seu método</strong>Leia → esconda o exemplo → escreva no papel → compare → refaça o que errou.</div><div class="module-grid">${modules.map(card).join('')}</div><div class="section-head"><h2>Um plano para hoje</h2></div><div class="concept">40 min: Intents, Fragments e preferências. 40 min: RecyclerView. 40 min: Retrofit, Auth e Firestore. 20 min: Maps. 25 min: planejamento. 15 min: refazer seus erros. Se tiver mais tempo, faça o simulado de 45 min.</div>`}
+function draft(key,label='Seu rascunho (salvo neste navegador)'){return `<label class="field-label" for="d-${key}">${label}</label><textarea id="d-${key}" data-draft="${key}" spellcheck="false" placeholder="Escreva no papel e registre suas dúvidas aqui, ou use este espaço…">${esc(state.drafts[key]||'')}</textarea>`}
+function lesson(l,m){let done=state.done.includes(l.n);return `<article class="lesson"><div class="lesson-top"><span class="lesson-num">${String(l.n).padStart(2,'0')}</span><div><h3>${esc(l[0])}</h3><small>${l[1]} · treino de papel</small></div></div><p>${esc(l[2])}</p><p class="check">✓ Para conferir: ${esc(l[3])}</p><span class="label">EXPLIQUE SEM CONSULTAR</span><p>${esc(l[4])}</p>${draft('l'+l.n)}<details><summary>Conferir explicação e código</summary><p>${esc(l[5])}</p>${code(l[6]||m.code,'Uma resposta possível')}</details><div class="done-row"><span>Compare e reescreva o que faltou. Marque quando conseguir explicar.</span><button class="done-button" data-done="${l.n}" aria-pressed="${done}">${done?'✓ Treino concluído':'Marcar como concluído'}</button></div></article>`}
+function modulePage(id,num){let index=modules.findIndex(m=>m.id===id),m=modules[index];if(!m)return missing();let list=num?m.lessons.filter(l=>l.n===+num):m.lessons;if(!list.length)return missing();return `<a class="back" href="#trilha">← Voltar à trilha</a>`+intro('MÓDULO '+String(index+1).padStart(2,'0'),m.name,m.subtitle+` · ~${m.time} min · ${count(m)} / 3 concluídas`)+`<div class="callout"><strong>O padrão para lembrar</strong>${m.pattern}</div><div class="concept">${m.concept}</div><div class="section-head"><div><h2>O código que você precisa reconstruir</h2><p>Leia uma vez. Esconda e tente escrever do zero.</p></div></div>${code(m.code)}<div class="section-head"><h2>Pegadinhas que merecem atenção</h2></div><ul class="traps">${m.traps.map(t=>`<li>${esc(t)}</li>`).join('')}</ul><div class="section-head"><div><h2>Agora é com o seu caderno</h2><p>Escreva antes de abrir a resposta.</p></div></div>${list.map(l=>lesson(l,m)).join('')}<a class="source" target="_blank" rel="noopener" href="${m.source}">Consultar documentação oficial →</a><div class="bottom-nav"><a class="back" href="#treino">Ver os 24 treinos</a><a class="button" href="#modulo/${modules[(index+1)%8].id}">Próximo módulo →</a></div>`}
+function rows(list){return list.length?list.map(({m,l})=>`<a class="row" href="#modulo/${m.id}/${l.n}"><span class="lesson-num">${String(l.n).padStart(2,'0')}</span><div><h3>${esc(l[0])}</h3><p>${m.name} · ${l[1]}</p></div><span>${state.done.includes(l.n)?'✓':'→'}</span></a>`).join(''):'<p class="empty">Nenhum treino encontrado. Tente outro filtro.</p>'}
+function training(){return intro('PRÁTICA ATIVA','Seu caderno é o ambiente de execução.','Escolha uma situação, esconda os exemplos e tente resolver. Os gabaritos ficam fechados até você abrir.')+`<div class="callout"><strong>Treine sem consultar</strong>O botão “Modo papel” no topo esconde os códigos de referência. Marcar conclusão é sua autoavaliação.</div><div class="filter"><input id="search" type="search" aria-label="Buscar situação" placeholder="Buscar assunto ou situação…"><select id="mod-filter" aria-label="Filtrar módulo"><option value="all">Todos os módulos</option>${modules.map(m=>`<option value="${m.id}">${m.name}</option>`).join('')}</select><select id="status-filter" aria-label="Filtrar progresso"><option value="all">Todos os treinos</option><option value="pending">Ainda não concluídos</option><option value="done">Concluídos</option></select></div><div id="rows">${rows(all)}</div>`}
+const orderLines=['finish();','resposta.putExtra("curso", "Java");','setResult(RESULT_OK, resposta);','Intent resposta = new Intent();'];
+function result(){let grades=state.test.grades,points=Object.values(grades).reduce((s,v)=>s+v,0);return `<div class="result" id="result"><span class="eyebrow">SUA AUTOAVALIAÇÃO</span><h2>${points} / 24 pontos</h2><p>${Object.keys(grades).length} de 12 questões avaliadas. Compare com os critérios e atribua 0, 1 ou 2 pontos por questão.</p></div>`}
+function testPage(){let t=state.test;if(!t)return intro('CHECKPOINT FINAL','Uma folha. 45 minutos. Sem consulta.','Um simulado inspirado nos assuntos do guia. Não é uma reprodução nem uma previsão da prova do professor.')+`<div class="exam-layout"><section class="panel"><h2>Como aproveitar o treino</h2><ol><li>Separe papel e caneta ou use os rascunhos.</li><li>São 12 questões: escrever, interpretar, corrigir, ordenar e planejar.</li><li>O tempo é uma referência. Você pode continuar depois de zerar.</li><li>Finalize para revelar gabarito e critérios.</li><li>A nota é uma autoavaliação; o site não executa nem corrige Java automaticamente.</li></ol><p class="small-note">O início, as respostas e a ordem das linhas ficam salvos neste navegador. O tempo continua se você sair da página.</p></section><section class="panel dark-panel"><span class="eyebrow">PRONTO PARA TENTAR?</span><h2>12 questões</h2><p>45 minutos sugeridos<br>24 pontos possíveis<br>Gabarito comentado</p><button class="button" id="start-test">Começar simulado →</button></section></div>`;
+return intro(t.finished?'SIMULADO CONCLUÍDO':'SIMULADO EM ANDAMENTO',t.finished?'Aprenda com cada resposta.':'Confie no que você consegue reconstruir.',t.finished?'Confira o gabarito, compare com seu papel e atribua pontos pelos critérios.':'O gabarito será liberado ao finalizar. Seus rascunhos ficam salvos neste navegador.')+(t.finished?result():`<div class="exam-top"><span>Tempo restante <strong id="clock">45:00</strong></span><span>12 questões · respostas salvas</span><button class="button small" data-finish>Finalizar e conferir</button></div>`)+exam.map((q,i)=>`<article class="lesson exam-q"><span class="tag">${q[0]}</span><span class="tag">${q[1]}</span><h3>${String(i+1).padStart(2,'0')}. ${esc(q[2])}</h3>${q[3]?code(q[3],'Enunciado — leia este trecho',true):''}${i===4?`<ol class="order">${t.order.map((line,p)=>`<li><code>${esc(orderLines[line])}</code>${!t.finished?`<span><button data-order="${p}:-1" aria-label="Mover linha ${p+1} para cima" ${p===0?'disabled':''}>↑</button> <button data-order="${p}:1" aria-label="Mover linha ${p+1} para baixo" ${p===3?'disabled':''}>↓</button></span>`:''}</li>`).join('')}</ol>`:''}<label class="field-label" for="e-${i}">Sua resposta ou anotação do papel</label><textarea id="e-${i}" data-answer="${i}" ${t.finished?'readonly':''} spellcheck="false">${esc(t.answers[i]||'')}</textarea>${t.finished?`<span class="label">GABARITO COMENTADO</span><div class="concept">${esc(q[4])}</div><ul class="rubric">${q[5].map(c=>`<li>${esc(c)}</li>`).join('')}</ul>${i===4?`<p class="small-note">Sua ordem ${t.order.join(',')==='3,1,2,0'?'está correta ✓':'precisa de ajuste; compare com o gabarito.'}</p>`:''}<div class="grades"><span>Minha resposta vale:</span>${[0,1,2].map(p=>`<button class="grade" data-grade="${i}:${p}" aria-pressed="${t.grades[i]===p}">${p} ${p===1?'ponto':'pontos'}</button>`).join('')}</div>`:''}</article>`).join('')+`<div class="actions-row">${t.finished?'<button class="button secondary" id="restart-test">Novo simulado</button><a class="button" href="#revisao">Revisar padrões →</a>':'<button class="button" data-finish>Finalizar e abrir gabarito →</button>'}</div><p class="small-note">Autoavaliação de treino. O site não executa nem corrige Java automaticamente.</p>`}
+const plans=[['Telas e navegação','Esboce as telas e marque Intent ou troca de Fragment em cada seta.','LoginActivity → MainActivity por Intent e finish no login. MainActivity hospeda EventosFragment e MinhasInscricoesFragment por abas. Um evento abre DetalheEventoFragment por replace com eventoId nos arguments e addToBackStack. O detalhe contém o mapa e Inscrever-se.'],['Coleções e relações','Defina campos e tipos. Como a inscrição aponta para usuário e evento?','usuarios/{uid}: nome String, turma String. eventos/{eventoId}: titulo String, data Timestamp, descricao String, vagasDisponiveis inteiro, turma String, local GeoPoint. inscricoes/{uid_eventoId}: usuarioId String, eventoId String, criadaEm Timestamp. ID composto ajuda a impedir duplicação, quando validado na transação e nas regras.'],['AndroidManifest.xml','Quais permissões, Activities e metadados são necessários? Um marcador fixo pede localização?','INTERNET fora de application. Activities dentro de application. Entrada com MAIN/LAUNCHER e exported=true; Activities internas normalmente exported=false. Meta-data com.google.android.geo.API_KEY dentro de application. Localização apenas se usar a posição do aluno; marcador fixo não exige essa permissão. Dependências e google-services.json também fazem parte da configuração do Firebase, mas não são itens do Manifest.'],['Uma vaga. Dois cliques.','Dois alunos leem vagas = 1. Como evitar duas inscrições?','Transação: leia evento e inscrição do usuário, confira vagas > 0 e ausência de inscrição, crie inscrição e decremente a vaga atomicamente. Em conflito, a transação pode repetir e revalidar. Leituras antes das gravações. Regras/backend devem impor as condições; esconder o botão não resolve.']];
+function planner(){return intro('DESAFIO DE ARQUITETURA · 25 MIN','Planeje a Agenda do Grêmio.','Desenhe as telas e escolha qual recurso resolve cada necessidade antes de escrever código.')+`<div class="callout"><strong>O requisito</strong>Login persistente, lista de eventos do Firebase, detalhe com data, descrição, vagas e mapa, inscrição e Minhas inscrições. Avise se o evento cair em feriado nacional pela BrasilAPI. Lembre a opção de filtrar pela turma.</div><div class="planner-grid">${plans.map((p,i)=>`<section class="panel"><h2>${i+1}. ${p[0]}</h2><p>${p[1]}</p>${draft('p'+i,'Seu planejamento (salvo neste navegador)')}<details><summary>Comparar com uma proposta</summary><p>${p[2]}</p></details></section>`).join('')}<section class="panel wide"><h2>5. Qual recurso entra onde?</h2><p>Tente associar as necessidades às ferramentas antes de conferir.</p><details><summary>Conferir mapa de recursos</summary><table><thead><tr><th>Recurso</th><th>Onde aparece</th></tr></thead><tbody>${[['Authentication','Login, cadastro, UID e sessão.'],['Firestore','Eventos, usuários, inscrições e vagas.'],['RecyclerView','Listas de eventos e inscrições.'],['SharedPreferences','Filtro por turma entre aberturas.'],['Retrofit','GET https://brasilapi.com.br/api/feriados/v1/2026; compare a data local do evento com a data retornada.'],['Google Maps','Marcador do evento no detalhe.']].map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table></details></section></div>`}
+function review(){return intro('PARA A ÚLTIMA RODADA','O essencial, na ponta da caneta.','Leia o nome do padrão, tente escrever seu código e só então confira o resumo.')+`<div class="actions-row"><button class="button" id="print-review">Imprimir esta revisão →</button><a class="button secondary" href="#treino">Voltar aos treinos</a></div><div class="quick-grid">${quick.map((q,i)=>`<article class="quick-card"><span class="eyebrow">${String(i+1).padStart(2,'0')}</span><h2>${q[0]}</h2><p>${q[1]}</p></article>`).join('')}</div><div class="callout"><strong>Antes de entregar</strong>Tipos e chaves combinam? Checou null? Usou o layout certo? Esperou o callback? Alterou a lista antes de notificar? Verificou a permissão? A pilha de retorno está coerente?</div><p class="small-note">Material baseado nos tópicos e situações do Guia de Estudos Mobile · nov/2026 · rev2. Explicações e exemplos preparados para revisão. Links de documentação oficial estão nos módulos. O material não substitui um projeto Android completo.</p><button class="reset" id="reset">Limpar meu progresso e rascunhos deste navegador</button>`}
+function missing(){return intro('PÁGINA NÃO ENCONTRADA','Vamos voltar à trilha?','Esse módulo ou situação não existe.')+'<a class="button" href="#trilha">Abrir trilha →</a>'}
+function clock(){if(!state.test||state.test.finished||!$('#clock'))return;let s=Math.max(0,Math.ceil((state.test.start+2700000-Date.now())/1000));$('#clock').textContent=`${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;$('#clock').title=s?'Tempo sugerido restante':'Tempo sugerido encerrado. Você pode continuar.'}
+let route='inicio';function render(scroll=true){let p=(location.hash.slice(1)||'inicio').split('/');route=p[0];let titles={inicio:'Visão geral',trilha:'Trilha de estudos',modulo:'Trilha de estudos',treino:'Treino no papel',simulado:'Simulado',planejamento:'Planeje um app',revisao:'Revisão expressa'},pages={inicio:home,trilha:trail,modulo:()=>modulePage(p[1],p[2]),treino:training,simulado:testPage,planejamento:planner,revisao:review};$('#main').innerHTML=(pages[route]||missing)();$('#page-label').textContent=titles[route]||'Página não encontrada';document.title=(titles[route]||'Android')+' — Android no papel';document.body.classList.toggle('paper-mode',state.paper);$('#paper-mode').setAttribute('aria-pressed',String(state.paper));$$('nav [data-nav]').forEach(a=>{let active=a.dataset.nav===(route==='modulo'?'trilha':route);a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});bind();clock();if(scroll){window.scrollTo(0,0);$('#main').focus({preventScroll:true})}}
+function bind(){
+$$('[data-reveal]').forEach(b=>b.onclick=()=>{let block=b.closest('.code'),body=$('.code-body',block),open=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!open));b.textContent=open?'Revelar exemplo':'Esconder exemplo';body.hidden=open;block.classList.toggle('revealed',!open)});
+$$('[data-draft]').forEach(el=>el.oninput=()=>{state.drafts[el.dataset.draft]=el.value;save()});
+$$('[data-done]').forEach(b=>b.onclick=()=>{let n=+b.dataset.done,was=state.done.includes(n);state.done=was?state.done.filter(x=>x!==n):[...state.done,n];save();b.setAttribute('aria-pressed',String(!was));b.textContent=was?'Marcar como concluído':'✓ Treino concluído';toast(was?'Marcado para revisar.':'Mais um treino concluído!')});
+function filter(){let q=$('#search').value.toLowerCase(),m=$('#mod-filter').value,s=$('#status-filter').value;$('#rows').innerHTML=rows(all.filter(x=>(m==='all'||x.m.id===m)&&(s==='all'||(s==='done'?state.done.includes(x.l.n):!state.done.includes(x.l.n)))&&`${x.m.name} ${x.l[0]} ${x.l[1]}`.toLowerCase().includes(q)))}
+$('#search')?.addEventListener('input',filter);$('#mod-filter')?.addEventListener('change',filter);$('#status-filter')?.addEventListener('change',filter);
+$('#start-test')?.addEventListener('click',()=>{state.test={start:Date.now(),answers:{},grades:{},order:[0,1,2,3],finished:false};save();render()});
+$$('[data-answer]').forEach(el=>el.oninput=()=>{state.test.answers[el.dataset.answer]=el.value;save()});
+$$('[data-finish]').forEach(b=>b.onclick=()=>{state.test.finished=true;save();render();toast('Gabarito liberado. Compare antes de pontuar.')});
+$$('[data-order]').forEach(b=>b.onclick=()=>{let [p,d]=b.dataset.order.split(':').map(Number),other=p+d;if(other<0||other>3)return;let order=state.test.order;[order[p],order[other]]=[order[other],order[p]];save();let y=window.scrollY;render(false);window.scrollTo(0,y)});
+$$('[data-grade]').forEach(b=>b.onclick=()=>{let [i,v]=b.dataset.grade.split(':').map(Number);state.test.grades[i]=v;save();$$('.grade',b.parentElement).forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('#result').outerHTML=result()});
+$('#restart-test')?.addEventListener('click',()=>{if(confirm('Iniciar um novo simulado e substituir as respostas e a autoavaliação do anterior?')){state.test=null;save();render()}});
+$('#print-review')?.addEventListener('click',()=>window.print());
+$('#reset')?.addEventListener('click',()=>{if(confirm('Apagar progresso, rascunhos e simulado deste navegador?')){state={done:[],drafts:{},paper:false,test:null};save();render();toast('Progresso limpo.')}})
+}
+$('#paper-mode').onclick=()=>{state.paper=!state.paper;save();document.body.classList.toggle('paper-mode',state.paper);$('#paper-mode').setAttribute('aria-pressed',String(state.paper));$$('.code:not(.exam-q .code)').forEach(block=>{block.classList.remove('revealed');$('.code-body',block).hidden=false;$('[data-reveal]',block).setAttribute('aria-expanded',String(!state.paper));$('[data-reveal]',block).textContent=state.paper?'Revelar exemplo':'Esconder exemplo'});toast(state.paper?'Exemplos escondidos. É hora de escrever.':'Exemplos disponíveis para consulta.')};
+$('.skip').onclick=e=>{e.preventDefault();$('#main').focus();$('#main').scrollIntoView({block:'start'})};
+$('#print-button').onclick=()=>{if(route==='revisao')window.print();else{location.hash='revisao';toast('Use “Imprimir esta revisão” nesta página.')}};
+window.addEventListener('hashchange',()=>render());setInterval(clock,1000);render(false);
+</script></body></html>
